@@ -1,1 +1,35 @@
-<p>booking-page works!</p>
+<div style="border: 1px solid gray; padding: 10px">
+    <section *ngFor="let row of layout.rows">
+      <button
+        style="margin: 10px"
+        *ngFor="let seat of row"
+        (click)="selectSeat(seat)"
+        [ngStyle]="{ backgroundColor: 'blue' }"
+      >
+        {{ seat.name }}
+      </button>
+    </section>
+    {{ selectedSeats | async | json }}
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Country</th>
+          <th scope="col">Area</th>
+          <th scope="col">Population</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (seat of selectedSeats | async; track seat.name; let i = $index) {
+        <tr>
+          <th scope="row">{{ i + 1 }}</th>
+          <td>
+            {{ seat.name }}
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
+
+  </div>
