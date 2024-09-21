@@ -20,6 +20,6 @@ export class CalculatorService {
   }
 
   getData() {
-    this._http.get('http://localhost:5000/people').subscribe(() => {});
+    return this._http.get<any[]>('http://localhost:5000/people')
   }
 }
