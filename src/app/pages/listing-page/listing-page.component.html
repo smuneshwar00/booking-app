@@ -1,1 +1,31 @@
-<h1>Results for: {{searchText}}</h1>
+<h1>Results for: {{ searchText }}</h1>
+
+<div class="container">
+  <div class="row mb-3" *ngFor="let item of listing">
+    {{item | json}}
+    <div class="col-md-8">
+      <div class="card shadow">
+        <div class="card-body">
+          <div class="row text-center">
+            <div class="col-md-1 mr-2">
+              <i class="fa fa-tachometer fa-2x"></i><br />
+            </div>
+            <div class="col-md-6">
+              <h4>{{item.city}}</h4>
+              <p>Engine Oil Change, Oil Filter Change, Air Filter Change</p>
+            </div>
+            <div class="col-md-4">
+              <h3>2495/-</h3>
+              <small>An estimated Price*</small>
+              <div class="sub-row">
+                <button type="button" class="btn btn-warning btn-sm btn-block">
+                  View details
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
